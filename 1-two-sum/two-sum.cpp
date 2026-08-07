@@ -1,16 +1,15 @@
 class Solution {
 public:
+// Time Complexicity=o(n);
     vector<int> twoSum(vector<int>& nums, int target) {
-        int sum=0;
+        unordered_map<int,int>m;
         for(int i=0;i<nums.size();i++){
-            for(int j=i+1;j<nums.size();j++){
-                sum=nums[i]+nums[j];
-                if(sum==target){
-                     return{i,j};
-                }
+            int complement=target-nums[i];
+            if(m.find(complement)!=m.end()){
+                return {m[complement],i};
             }
+            m[nums[i]]=i;
         }
         return{};
     }
-   
 };
