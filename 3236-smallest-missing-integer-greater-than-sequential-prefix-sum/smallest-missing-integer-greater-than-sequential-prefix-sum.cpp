@@ -10,11 +10,12 @@ public:
             else{
                 break;
             }
+            
         }
         unordered_set<int>st(nums.begin(),nums.end());
-        while(st.count(sum)){
-            sum++;
-        }
+            while(st.count(sum)){
+                sum++;
+            }
         return sum;
     }
 };
