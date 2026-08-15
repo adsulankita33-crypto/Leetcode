@@ -17,7 +17,6 @@ public:
                 }
             }
             else{
-                if(nums[mid]<=nums[end]){
                 if(nums[mid]<=target && target<=nums[end]){
                     start=mid+1;
                 }
@@ -25,7 +24,6 @@ public:
                     end=mid-1;
                 }
             }
-        }
         }return -1;
     }
 };
