@@ -10,7 +10,7 @@ public:
                 hours+=(pile+mid-1)/mid;
             }
             if(hours<=h){
-                high=mid-1;
+               high=mid-1;
             }
             else{
                 low=mid+1;
