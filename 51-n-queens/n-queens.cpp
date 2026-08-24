@@ -16,7 +16,7 @@ bool isSafe(vector<string>&board,int row,int coln,int n){
             return false;
         }
     }
-    for(int i=row-1, j=coln+1;i>=0&&j<n;i--,j++){
+    for(int i=row-1,j=coln+1;i>=0&&j<n;i--,j++){
         if(board[i][j]=='Q'){
             return false;
         }
@@ -26,20 +26,20 @@ bool isSafe(vector<string>&board,int row,int coln,int n){
 void nQueen(vector<string>&board,int row,vector<vector<string>>&ans,int n){
     if(row==n){
         ans.push_back(board);
-        return;
+        return ;
     }
     for(int j=0;j<n;j++){
-      if(isSafe(board,row,j,n)){
-        board[row][j]='Q';
-      nQueen(board,row+1,ans,n);
-      board[row][j]='.';
+        if(isSafe(board,row,j,n)){
+            board[row][j]='Q';
+            nQueen(board,row+1,ans,n);
+            board[row][j]='.';
+        }
     }
 }
-}
     vector<vector<string>> solveNQueens(int n) {
-      vector<vector<string>>ans;
-      vector<string>board(n,string(n,'.'));
-      nQueen(board,0,ans,n);
-      return ans;  
+        vector<vector<string>>ans;
+        vector<string>board(n,string(n,'.'));
+        nQueen(board,0,ans,n);
+        return ans;
     }
 };
