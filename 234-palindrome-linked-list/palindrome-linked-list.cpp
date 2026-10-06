@@ -11,29 +11,32 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
+        //find the middle
         ListNode*fast=head;
         ListNode*slow=head;
-        while(fast!=NULL && fast->next!=NULL){
-            slow=slow->next;
-            fast=fast->next->next;
+    while(fast!=NULL && fast->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    //reverse 
+    ListNode*prev=NULL;
+    ListNode*curr=slow;
+    ListNode*next=NULL;
+    while(curr!=NULL){
+        next=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=next;
+    }
+    ListNode*first=head;
+    ListNode*second=prev;
+    while(second!=NULL){
+        if(first->val!=second->val){
+            return false;
         }
-        ListNode*prev=NULL;
-        ListNode*curr=slow;
-        while(curr!=NULL){
-            ListNode*next=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=next;
-        }
-        ListNode*first=head;
-        ListNode*second=prev;
-        while(second!=NULL){
-            if(first->val!=second->val){
-                return false;
-            }
-            first=first->next;
-            second=second->next;
-        }
-        return true;
+        first=first->next;
+        second=second->next;
+    }
+    return true;
     }
 };
