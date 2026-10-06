@@ -16,7 +16,7 @@ public:
         }
         vector<int>arr;
         ListNode*temp=head;
-        while(temp!=NULL && temp->next!=NULL ){
+        while(temp!=NULL&& temp->next!=NULL){
             arr.push_back(temp->val);
             temp=temp->next->next;
         }
@@ -24,7 +24,7 @@ public:
             arr.push_back(temp->val);
         }
         temp=head->next;
-        while(temp!=NULL && temp->next!=NULL){
+        while(temp!=NULL&&temp->next!=NULL){
             arr.push_back(temp->val);
             temp=temp->next->next;
         }
