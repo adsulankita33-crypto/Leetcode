@@ -13,10 +13,10 @@ public:
         ListNode*slow=head;
         bool iscycle=false;
         while(fast!=NULL && fast->next!=NULL){
-            slow=slow->next;
             fast=fast->next->next;
+            slow=slow->next;
             if(slow==fast){
-                iscycle= true;
+                iscycle=true;
                 break;
             }
         }
@@ -25,8 +25,8 @@ public:
         }
         slow=head;
         while(fast!=slow){
-            slow=slow->next;
             fast=fast->next;
+            slow=slow->next;
         }
         return slow;
     }
