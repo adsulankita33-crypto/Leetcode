@@ -17,14 +17,16 @@ public:
         if(list2==NULL){
             return list1;
         }
-        if(list1->val<=list2->val){
-            list1->next=mergeTwoLists(list1->next,list2);
-            return list1;
+        ListNode*t1=list1;
+        ListNode*t2=list2;
+        if(t1->val<=t2->val){
+            t1->next=mergeTwoLists(t1->next,t2);
+            return t1;
         }
         else{
-            list2->next=mergeTwoLists(list1,list2->next);
-            return list2;
+            t2->next=mergeTwoLists(t1,t2->next);
+            return t2;
         }
-        return list1;
+        return t1;
     }
 };
