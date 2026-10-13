@@ -23,8 +23,8 @@ public:
                     curr=curr->next;
                 }
                 if(next!=NULL){
-                curr->next=next;
-                next->prev=curr;
+                    curr->next=next;
+                    next->prev=curr;
                 }
             }
             curr=curr->next;
