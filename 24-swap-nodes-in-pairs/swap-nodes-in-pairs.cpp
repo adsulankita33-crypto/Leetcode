@@ -25,7 +25,7 @@ public:
                 prev->next=second;
             }
             else{
-                head=second;
+            head=second;
             }
             prev=first;
             first=third;
