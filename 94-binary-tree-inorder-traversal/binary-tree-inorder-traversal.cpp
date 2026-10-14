@@ -14,7 +14,7 @@ public:
 vector<int>ans;
 void inorder(TreeNode*root){
     if(root==NULL){
-        return;
+        return ;
     }
     inorder(root->left);
     ans.push_back(root->val);
