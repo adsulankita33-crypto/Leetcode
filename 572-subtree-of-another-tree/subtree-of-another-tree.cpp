@@ -11,21 +11,21 @@
  */
 class Solution {
 public:
-  bool isIdentical(TreeNode*p,TreeNode*q){
+   bool isIdentical(TreeNode*p,TreeNode*q){
     if(p==NULL||q==NULL){
         return p==q;
     }
     int lefttree=isIdentical(p->left,q->left);
     int righttree=isIdentical(p->right,q->right);
     return lefttree && righttree && p->val==q->val;
-  }
+   }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if(root==NULL ||subRoot==NULL){
+        if(root==NULL || subRoot==NULL){
             return root==subRoot;
         }
         if(root->val==subRoot->val && isIdentical(root,subRoot)){
             return true;
         }
-        return isSubtree(root->left,subRoot)||isSubtree(root->right,subRoot);
+        return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
     }
 };
