@@ -15,8 +15,8 @@ public:
         if(p==NULL || q==NULL){
             return p==q;
         }
-        int leftsame=isSameTree(p->left,q->left);
-        int rightsame=isSameTree(p->right,q->right);
-        return leftsame&& rightsame&& p->val==q->val;
+        int lefttree=isSameTree(p->left,q->left);
+        int righttree=isSameTree(p->right,q->right);
+        return lefttree && righttree && p->val==q->val;
     }
 };
