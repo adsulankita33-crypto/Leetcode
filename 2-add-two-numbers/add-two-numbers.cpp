@@ -16,20 +16,20 @@ public:
         ListNode*dummyNode=new ListNode(-1);
         ListNode*curr=dummyNode;
         int carry=0;
-        while(t1!=0||t2!=0||carry){
+        while(t1!=NULL || t2!=NULL ||carry!=0){
             int sum=carry;
-            if(t1!=0){
+            if(t1!=NULL){
                 sum=sum+t1->val;
                 t1=t1->next;
             }
-            if(t2!=0){
+            if(t2!=NULL){
                 sum=sum+t2->val;
                 t2=t2->next;
             }
             ListNode*newNode=new ListNode(sum%10);
-             carry=sum/10;
-             curr->next=newNode;
-             curr=curr->next;
+            carry=sum/10;
+            curr->next=newNode;
+            curr=curr->next;
         }
         return dummyNode->next;
     }
