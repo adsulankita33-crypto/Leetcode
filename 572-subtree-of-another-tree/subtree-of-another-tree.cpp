@@ -11,19 +11,19 @@
  */
 class Solution {
 public:
-   bool isIdentical(TreeNode*p,TreeNode*q){
-    if(p==NULL||q==NULL){
-        return p==q;
-    }
-    int lefttree=isIdentical(p->left,q->left);
-    int righttree=isIdentical(p->right,q->right);
-    return lefttree && righttree && p->val==q->val;
-   }
-    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if(root==NULL || subRoot==NULL){
-            return root==subRoot;
+    bool isSameTree(TreeNode*p ,TreeNode*q){
+        if(p==NULL || q==NULL){
+            return p==q;
         }
-        if(root->val==subRoot->val && isIdentical(root,subRoot)){
+        int leftsame=isSameTree(p->left,q->left);
+        int rightsame=isSameTree(p->right,q->right);
+        return leftsame && rightsame && p->val==q->val;
+    }
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if(root==NULL ||subRoot==NULL){
+        return root==subRoot;
+        }
+        if(root->val ==subRoot->val && isSameTree(root,subRoot)){
             return true;
         }
         return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
