@@ -14,9 +14,9 @@ public:
         ListNode*temp=head;
         while(temp!=NULL && temp->next!=NULL){
             if(temp->val==temp->next->val){
-                ListNode*duplicate=temp->next;
-                temp->next=temp->next->next;
-                delete duplicate;
+                ListNode*duplicateNode=temp->next;
+                temp->next=duplicateNode->next;
+                delete duplicateNode;
             }
             else{
                 temp=temp->next;
