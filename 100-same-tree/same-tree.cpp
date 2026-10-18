@@ -17,6 +17,6 @@ public:
         }
         int leftsame=isSameTree(p->left,q->left);
         int rightsame=isSameTree(p->right,q->right);
-        return leftsame&& rightsame&& p->val==q->val;
+        return leftsame && rightsame && p->val == q->val;
     }
 };
