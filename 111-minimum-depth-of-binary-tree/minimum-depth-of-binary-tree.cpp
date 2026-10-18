@@ -10,7 +10,7 @@
  * };
  */
 class Solution {
-public: 
+public:
     int height(TreeNode*root){
         if(root==NULL){
             return 0;
@@ -23,8 +23,7 @@ public:
         }
         int leftheight=height(root->left);
         int rightheight=height(root->right);
-        int minimum=min(leftheight,rightheight)+1;
-        return minimum;
+        return min(leftheight,rightheight)+1;
     }
     int minDepth(TreeNode* root) {
         return height(root);
