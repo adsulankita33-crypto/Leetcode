@@ -18,8 +18,8 @@ public:
         }
         int leftheight=max(0,height(root->left));
         int rightheight=max(0,height(root->right));
-        int currsum=root->val+rightheight+leftheight;
-         maxi=max(maxi,currsum);
+        int currheight=leftheight+rightheight+root->val;
+        maxi=max(maxi,currheight);
         return root->val+max(leftheight,rightheight);
     }
     int maxPathSum(TreeNode* root) {
