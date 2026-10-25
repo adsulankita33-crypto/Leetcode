@@ -10,20 +10,20 @@
  * };
  */
 class Solution {
-public:
-    int maxi=INT_MIN;
+public: 
+    int ans=INT_MIN;
     int height(TreeNode*root){
         if(root==NULL){
             return 0;
         }
         int leftheight=max(0,height(root->left));
         int rightheight=max(0,height(root->right));
-        int curr= leftheight+rightheight+root->val;
-        maxi=max(maxi,leftheight+rightheight+root->val);
+        int currheight=leftheight+rightheight+root->val;
+        ans=max(ans,currheight);
         return max(leftheight,rightheight)+root->val;
     }
     int maxPathSum(TreeNode* root) {
         height(root);
-        return maxi;
+        return ans;
     }
 };
