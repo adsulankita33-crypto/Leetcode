@@ -19,35 +19,37 @@ public:
         stack<TreeNode*>currlevel;
         stack<TreeNode*>nextlevel;
         bool lefttoright=true;
-        vector<int>level;
         currlevel.push(root);
+         vector<int>level;
         while(!currlevel.empty()){
             TreeNode*temp=currlevel.top();
             currlevel.pop();
-            level.push_back(temp->val);
-            if(lefttoright==true){
-              if(temp->left!=NULL){
-                nextlevel.push(temp->left);
-              }
-              if(temp->right!=NULL){
-                nextlevel.push(temp->right);
-              }
-            }
-            else{
-                if(temp->right!=NULL){
-                    nextlevel.push(temp->right);
+           
+            if(temp!=NULL){
+                level.push_back(temp->val);
+                if(lefttoright==true){
+                    if(temp->left!=NULL){
+                        nextlevel.push(temp->left);
+                    }
+                    if(temp->right!=NULL){
+                        nextlevel.push(temp->right);
+                    }
                 }
-                if(temp->left!=NULL){
-                    nextlevel.push(temp->left);
+                else{
+                    if(temp->right!=NULL){
+                        nextlevel.push(temp->right);
+                    }
+                    if(temp->left!=NULL){
+                        nextlevel.push(temp->left);
+                    }
                 }
-            }
-            if (currlevel.empty()) {
-                ans.push_back(level);
+                if(currlevel.empty()){
+                     ans.push_back(level);
                 level.clear();
-
-                lefttoright = !lefttoright;
-                swap(currlevel, nextlevel);
-            } 
+                    lefttoright=!lefttoright;
+                    swap(currlevel,nextlevel);
+                }
+            }
         }
         return ans;
     }
