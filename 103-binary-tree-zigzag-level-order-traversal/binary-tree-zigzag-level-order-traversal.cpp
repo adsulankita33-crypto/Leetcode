@@ -20,37 +20,36 @@ public:
         stack<TreeNode*>nextlevel;
         bool lefttoright=true;
         currlevel.push(root);
-         vector<int>level;
+        vector<int>level;
         while(!currlevel.empty()){
-            TreeNode*temp=currlevel.top();
-            currlevel.pop();
-           
-            if(temp!=NULL){
-                level.push_back(temp->val);
-                if(lefttoright==true){
-                    if(temp->left!=NULL){
-                        nextlevel.push(temp->left);
-                    }
-                    if(temp->right!=NULL){
-                        nextlevel.push(temp->right);
-                    }
-                }
-                else{
-                    if(temp->right!=NULL){
-                        nextlevel.push(temp->right);
-                    }
-                    if(temp->left!=NULL){
-                        nextlevel.push(temp->left);
-                    }
-                }
-                if(currlevel.empty()){
-                     ans.push_back(level);
-                level.clear();
-                    lefttoright=!lefttoright;
-                    swap(currlevel,nextlevel);
-                }
+           TreeNode*temp=currlevel.top();
+           level.push_back(temp->val);
+           currlevel.pop();
+           if(temp!=NULL){
+            if(lefttoright==true){
+            if(temp->left!=NULL){
+                nextlevel.push(temp->left);
             }
+            if(temp->right!=NULL){
+                nextlevel.push(temp->right);
+            }
+          }
+          else{
+            if(temp->right!=NULL){
+                nextlevel.push(temp->right);
+            }
+            if(temp->left!=NULL){
+                nextlevel.push(temp->left);
+            }
+          }
+          if(currlevel.empty()){
+            ans.push_back(level);
+                level.clear();
+            lefttoright=!lefttoright;
+            swap(currlevel,nextlevel);
+          }
         }
-        return ans;
+       }
+       return ans;
     }
 };
