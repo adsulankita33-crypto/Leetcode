@@ -26,18 +26,20 @@ public:
             int x=p.second.first;
             int y=p.second.second;
             nodes[x][y].insert(node->val);
-        if(node->left!=NULL){
-            q.push({node->left,{x-1,y+1}});
+            if(node->left!=NULL){
+                q.push({node->left,{x-1,y+1}});
+            }
+            if(node->right!=NULL){
+                q.push({node->right,{x+1,y+1}});
+            }
         }
-        if(node->right!=NULL){
-            q.push({node->right,{x+1,y+1}});
-        }
-        }
-        for (auto col : nodes) {
+        for(auto col : nodes) {
+
             vector<int> temp;
 
-            for (auto row : col.second) {
-                for (auto value : row.second) {
+            for(auto row : col.second) {
+
+                for(auto value : row.second) {
                     temp.push_back(value);
                 }
             }
