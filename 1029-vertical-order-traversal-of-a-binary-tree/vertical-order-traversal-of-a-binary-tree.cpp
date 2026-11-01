@@ -32,8 +32,7 @@ public:
             if(node->right!=NULL){
                 q.push({node->right,{x+1,y+1}});
             }
-        }
-        for(auto col : nodes) {
+        }for(auto col : nodes) {
 
             vector<int> temp;
 
